@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Library/Developer/CommandLineTools/usr/bin/clang
 CXX           = /Library/Developer/CommandLineTools/usr/bin/clang++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../ConLang -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib
+INCPATH       = -I../ConLang -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib
 QMAKE         = /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = ConLang1.0.0
 DISTDIR = /Users/sophialuo/Documents/UCLA/2017-18/Spring/PIC\ 10C/Repositories/PIC10C_Final_Project/build-ConLang-Desktop_Qt_5_11_0_clang_64bit-Debug/.tmp/ConLang1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtSql -framework OpenGL -framework AGL 
 AR            = /Library/Developer/CommandLineTools/usr/bin/ar cq
 RANLIB        = /Library/Developer/CommandLineTools/usr/bin/ranlib -s
 SED           = sed
@@ -192,6 +192,7 @@ DIST          = /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/f
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/qt_config.prf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/spec_post.prf \
+		../ConLang/.qmake.stash \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/toolchain.prf \
@@ -375,6 +376,7 @@ Makefile: ../ConLang/ConLang.pro /Users/sophialuo/Documents/Software/Qt/5.11.0/c
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/qt_config.prf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/toolchain.prf \
@@ -405,6 +407,7 @@ Makefile: ../ConLang/ConLang.pro /Users/sophialuo/Documents/Software/Qt/5.11.0/c
 		../ConLang/ConLang.pro \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile ../ConLang/ConLang.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf:
@@ -544,6 +547,7 @@ Makefile: ../ConLang/ConLang.pro /Users/sophialuo/Documents/Software/Qt/5.11.0/c
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/qt_config.prf:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/toolchain.prf:
@@ -574,6 +578,7 @@ Makefile: ../ConLang/ConLang.pro /Users/sophialuo/Documents/Software/Qt/5.11.0/c
 ../ConLang/ConLang.pro:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl:
+/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl:
 /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../ConLang/ConLang.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
@@ -617,6 +622,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r ConLang.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -643,10 +649,30 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../ConLang/mainwindow.h \
 		moc_predefs.h \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/bin/moc
-	/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang -I'/Users/sophialuo/Documents/UCLA/2017-18/Spring/PIC 10C/Repositories/PIC10C_Final_Project/ConLang' -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk/usr/include -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib ../ConLang/mainwindow.h -o moc_mainwindow.cpp
+	/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang -I'/Users/sophialuo/Documents/UCLA/2017-18/Spring/PIC 10C/Repositories/PIC10C_Final_Project/ConLang' -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk/usr/include -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib ../ConLang/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -674,6 +700,26 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../ConLang/main.cpp ../ConLang/mainwindow.h \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ConLang/main.cpp
@@ -681,6 +727,26 @@ main.o: ../ConLang/main.cpp ../ConLang/mainwindow.h \
 mainwindow.o: ../ConLang/mainwindow.cpp ../ConLang/mainwindow.h \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../ConLang/mainwindow.cpp
 

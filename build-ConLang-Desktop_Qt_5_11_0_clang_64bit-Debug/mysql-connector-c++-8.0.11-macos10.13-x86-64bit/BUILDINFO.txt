@@ -1,0 +1,10 @@
+Information about the build environment:
+
+OS information : Darwin-17.2.0
+C   compiler   : Clang 9.0.0
+C++ compiler   : Clang 9.0.0
+MacOS version  : 10.13.1 (17B48)
+
+Legacy connector information:
+
+MySQL version  : 8.0.11

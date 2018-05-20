@@ -212,17 +212,14 @@ QPushButton:hover { background-color: #66c011; }</string>
            <item>
             <widget class="QLabel" name="label">
              <property name="text">
-              <string>Username:</string>
+              <string>Name:</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="username">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>25</height>
-              </size>
+            <widget class="QLabel" name="name">
+             <property name="text">
+              <string>TextLabel</string>
              </property>
             </widget>
            </item>
@@ -233,17 +230,46 @@ QPushButton:hover { background-color: #66c011; }</string>
            <item>
             <widget class="QLabel" name="label_2">
              <property name="text">
-              <string>Password:</string>
+              <string>Age:</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="password">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>25</height>
-              </size>
+            <widget class="QLabel" name="age">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Gender:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="gender"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Married:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="married">
+             <property name="text">
+              <string/>
              </property>
             </widget>
            </item>

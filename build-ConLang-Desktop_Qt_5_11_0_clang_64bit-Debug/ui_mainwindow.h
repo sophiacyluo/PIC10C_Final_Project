@@ -11,9 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -42,10 +43,16 @@ public:
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label;
-    QLineEdit *username;
+    QLabel *name;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_2;
-    QLineEdit *password;
+    QLabel *age;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_3;
+    QComboBox *gender;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *label_4;
+    QCheckBox *married;
     QSpacerItem *verticalSpacer_2;
     QPushButton *loginButton;
     QSpacerItem *verticalSpacer;
@@ -165,11 +172,10 @@ public:
 
         horizontalLayout_5->addWidget(label);
 
-        username = new QLineEdit(loginForm);
-        username->setObjectName(QStringLiteral("username"));
-        username->setMinimumSize(QSize(0, 25));
+        name = new QLabel(loginForm);
+        name->setObjectName(QStringLiteral("name"));
 
-        horizontalLayout_5->addWidget(username);
+        horizontalLayout_5->addWidget(name);
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
@@ -182,14 +188,45 @@ public:
 
         horizontalLayout_4->addWidget(label_2);
 
-        password = new QLineEdit(loginForm);
-        password->setObjectName(QStringLiteral("password"));
-        password->setMinimumSize(QSize(0, 25));
+        age = new QLabel(loginForm);
+        age->setObjectName(QStringLiteral("age"));
 
-        horizontalLayout_4->addWidget(password);
+        horizontalLayout_4->addWidget(age);
 
 
         verticalLayout_2->addLayout(horizontalLayout_4);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        label_3 = new QLabel(loginForm);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        horizontalLayout_6->addWidget(label_3);
+
+        gender = new QComboBox(loginForm);
+        gender->setObjectName(QStringLiteral("gender"));
+
+        horizontalLayout_6->addWidget(gender);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_6);
+
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        label_4 = new QLabel(loginForm);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        horizontalLayout_7->addWidget(label_4);
+
+        married = new QCheckBox(loginForm);
+        married->setObjectName(QStringLiteral("married"));
+
+        horizontalLayout_7->addWidget(married);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_7);
 
         verticalSpacer_2 = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
@@ -225,8 +262,13 @@ public:
         shutdownButton->setText(QString());
         restartButton->setText(QString());
         logo->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "Username:", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Password:", nullptr));
+        label->setText(QApplication::translate("MainWindow", "Name:", nullptr));
+        name->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Age:", nullptr));
+        age->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "Gender:", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "Married:", nullptr));
+        married->setText(QString());
         loginButton->setText(QApplication::translate("MainWindow", "Login", nullptr));
     } // retranslateUi
 
