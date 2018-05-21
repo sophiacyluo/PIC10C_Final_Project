@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("127.0.0.1");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL", "name");
+    db.setHostName("localhost");
     db.setUserName("sophiacyluo");
     db.setPassword("0261l54rfindB");
     db.setDatabaseName("employee");
