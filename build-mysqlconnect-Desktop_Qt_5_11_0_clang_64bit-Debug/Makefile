@@ -15,7 +15,7 @@ CXX           = /Library/Developer/CommandLineTools/usr/bin/clang++
 DEFINES       = -DQT_QML_DEBUG -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../mysqlconnect -I. -I/Users/sophialuo/Desktop -I/Users/sophialuo/Desktop -I/Users/sophialuo/Desktop -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib
+INCPATH       = -I../mysqlconnect -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib
 QMAKE         = /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = mysqlconnect1.0.0
 DISTDIR = /Users/sophialuo/Documents/UCLA/2017-18/Spring/PIC\ 10C/Repositories/PIC10C_Final_Project/build-mysqlconnect-Desktop_Qt_5_11_0_clang_64bit-Debug/.tmp/mysqlconnect1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib -L/Users/sophialuo/Documents/UCLA/2017-18/Spring/PIC\ 10C/Repositories/PIC10C_Final_Project/mysqlconnect/../../../../../../../../Desktop/lib/ -lmysqlclient -lmysqlclient.18 -framework QtSql -framework QtCore -framework DiskArbitration -framework IOKit 
+LIBS          = $(SUBLIBS) -F/Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/lib -framework QtSql -framework QtCore -framework DiskArbitration -framework IOKit 
 AR            = /Library/Developer/CommandLineTools/usr/bin/ar cq
 RANLIB        = /Library/Developer/CommandLineTools/usr/bin/ranlib -s
 SED           = sed
@@ -229,7 +229,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): /Users/sophialuo/Documents/UCLA/2017-18/Spring/PIC\ 10C/Repositories/PIC10C_Final_Project/mysqlconnect/../../../../../../../../Desktop/lib/libmysqlclient.a $(OBJECTS)  
+$(TARGET):  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../mysqlconnect/mysqlconnect.pro /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/macx-clang/qmake.conf /Users/sophialuo/Documents/Software/Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
